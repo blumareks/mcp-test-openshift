@@ -1,0 +1,16 @@
+{
+    "mcpServers": {
+        "mcp-trader": {
+            "command": "uv",
+            "args": [
+                "--directory",
+                "/app/mcp-servers/mcp-trader-main",
+                "run",
+                "mcp-trader"
+            ],
+            "env": {
+                "TIINGO_API_KEY": "<add this key in your .env>"
+            }
+        }
+    }
+}

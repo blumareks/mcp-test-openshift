@@ -1,0 +1,9 @@
+fastapi
+uvicorn==0.34.1
+pydantic
+ibm-watsonx-ai==1.3.8
+langchain-ibm==0.3.10
+langchain-mcp-adapters==0.0.8
+langgraph==0.3.30
+mcp
+python-dotenv
