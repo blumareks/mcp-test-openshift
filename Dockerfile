@@ -42,6 +42,9 @@ ENV PYTHONUNBUFFERED=1
 # Set work directory
 WORKDIR /app
 
+# Install uv as non-root
+USER 0
+
 #UV
 COPY --from=uv --chown=app:app /app/.venv /app/.venv
 ENV PATH="/app/.venv/bin:$PATH"
@@ -62,6 +65,9 @@ RUN apt-get update && apt-get install -y \
 # Install uv using official install script
 #RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 #ENV PATH="/root/.local/bin:${PATH}"
+
+
+USER 1001
 
 # Copy requirements and install Python packages using uv
 COPY requirements.txt .
