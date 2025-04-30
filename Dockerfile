@@ -28,8 +28,8 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-install-project --no-dev --no-editable
 
 ADD . /app
-RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --no-dev --no-editable
+#RUN --mount=type=cache,target=/root/.cache/uv \
+#    uv sync --frozen --no-dev --no-editable
 
     
 # Use official Python image as base
