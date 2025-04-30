@@ -18,6 +18,9 @@ RUN apt-get update && apt-get install -y \
     && cd .. && rm -rf ta-lib-0.6.4 ta-lib-0.6.4-src.tar.gz \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Copy pyproject.toml and uv.lock for dependencies
+COPY pyproject.toml uv.lock ./
+
 
 RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=mcp-servers/mcp-trader-main/uv.lock,target=uv.lock \
