@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Copy pyproject.toml and uv.lock for dependencies
-COPY pyproject.toml uv.lock ./
+COPY ./mcp-servers/mcp-trader-main/pyproject.toml ./mcp-servers/mcp-trader-main/uv.lock ./
 
 
 RUN --mount=type=cache,target=/root/.cache/uv \
