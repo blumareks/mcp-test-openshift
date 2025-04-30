@@ -33,17 +33,17 @@ ADD . /app
 
     
 # Use official Python image as base
-FROM python:3.11-slim
+#FROM python:3.11-slim
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 # Set work directory
-WORKDIR /app
+#WORKDIR /app
 
 # Install uv as non-root
-USER 0
+#USER 0
 
 #UV
 COPY --from=uv --chown=app:app /app/.venv /app/.venv
