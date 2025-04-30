@@ -2,6 +2,8 @@
 # Use a Python image with uv pre-installed
 FROM ghcr.io/astral-sh/uv:python3.11-bookworm-slim AS uv
 
+USER 0  # Temporarily switch to root to install packages
+
 # Install required packages
 RUN apt-get update && apt-get install -yqq \
   libsoup2.4-dev \
@@ -34,6 +36,10 @@ COPY pyproject.toml uv.lock ./
 # Install the project's dependencies using the lockfile and settings
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-install-project --no-dev --no-editable
+
+
+USER 1001  # Switch back to default non-root OpenShift user
+
 
 # Copy the entire source code into the container
 COPY src/ ./src/
